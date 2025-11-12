@@ -18,7 +18,7 @@ with st.status(
         "userid": st.session_state.get("userid", ""),
         "gender": st.session_state.get("gender", ""),
         "age": st.session_state.get("age", ""),
-        "comment": st.session_state["comment"],  # Record comment
+        # "comment": st.session_state["comment"],  # Record comment
         "start_time": st.session_state.get("start_time"),
         "finishing_time": datetime.datetime.now(pytz.timezone("Asia/Tokyo")).strftime(
             "%Y-%m-%d_%H-%M-%S"
