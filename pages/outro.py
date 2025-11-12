@@ -28,7 +28,7 @@ with st.status(
 
     # Write to Firestore collection
     st.write("Write data")
-    db.collection("250922-carlos-yano-situation-behaivor-B").add(doc_data)
+    db.collection("250922-carlos-yano-situation-behaivor-addition").add(doc_data)
     status.update(label="ご回答は正常に記録されました。", state="complete")
 
 st.text(
