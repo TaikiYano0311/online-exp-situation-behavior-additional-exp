@@ -108,11 +108,9 @@ st.warning(
 )
 st.warning(
     """
-    ・ビデオのタイトル画面に表示される「状況設定」と「客の種類」をご確認ください。
+    ・ビデオのタイトル画面に表示される「状況設定」と「客層」をご確認ください。
 
     ・ご自身が設定の客の立場で、ロボットから接客を受けていると想像しながらご覧ください。
-
-    ・ビデオを再生するとき、カーソルを動画の上に置いたままにすると、再生バーが消えず、字幕が見えなくなります。
 
     ・各ビデオを見た後に、質問にお答えください。
     """
@@ -141,6 +139,11 @@ def exp_fragment():
             with st.container(border=True):
                 st.subheader(f"ビデオ{idx+1}")
                 st.video(url)
+                st.markdown(
+                    #"<span style='color:red; font-weight:bold; font-size:20px;'>再生時、カーソルを動画の上に置かないでください。字幕が再生バーに隠れて見えなくなります。</span>",
+                    "<span style='color:red'>再生時、カーソルを動画の上に置かないでください。字幕が再生バーに隠れて見えなくなります。</span>",
+                    unsafe_allow_html=True
+                    )
                 q1_choice = st.radio(
                     "Q1: ロボットの振舞いは、人間らしいと感じましたか、それとも機械的だと感じましたか？（接客の適切さは評価に含まない）\n\n1: 非常に機械的; . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7: 非常に人間らしい",
                     options=[str(i) for i in range(1, 8)],
@@ -149,7 +152,7 @@ def exp_fragment():
                     horizontal=True,
                 )
                 q2_choice = st.radio(
-                    "Q2: このロボットは客層や状況に合った適切な接客をしていると感じましたか？\n\n1: 全く合っていない; . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7: 非常に合っている",
+                    "Q2: このロボットは客層や状況に合った適切な接客をしていると感じましたか？\n\n1: 全く適切ではない; . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7: 非常に適切である",
                     options=[str(i) for i in range(1, 8)],
                     index=None,
                     key=f'q2_choice_{st.session_state["scenario_tutorial_idx"]}_{idx}',
