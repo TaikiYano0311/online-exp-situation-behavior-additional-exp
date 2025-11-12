@@ -140,14 +140,14 @@ def exp_fragment():
                 st.subheader(f"ビデオ{idx+1}")
                 st.video(url)
                 q1_choice = st.radio(
-                    "Q1: ロボットの話し方、表情、動きなどを見て、人間らしいと感じましたか、それとも機械的だと感じましたか？\n\n1: 非常に機械的; . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7: 非常に人間らしい",
+                    "Q1: ロボットの振舞いは、人間らしいと感じましたか、それとも機械的だと感じましたか？\n\n1: 非常に機械的; . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7: 非常に人間らしい",
                     options=[str(i) for i in range(1, 8)],
                     index=None,
                     key=f'q1_choice_{st.session_state["scenario_tutorial_idx"]}_{idx}',
                     horizontal=True,
                 )
                 q2_choice = st.radio(
-                    "Q2: ロボットの話し方や態度は客の種類や状況に合っていると感じましたか？\n\n1: 全く合っていない; . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7: 非常に合っている",
+                    "Q2: ロボットの接客は、客の種類や状況に合っていると感じましたか？\n\n1: 全く合っていない; . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7: 非常に合っている",
                     options=[str(i) for i in range(1, 8)],
                     index=None,
                     key=f'q2_choice_{st.session_state["scenario_tutorial_idx"]}_{idx}',

@@ -141,7 +141,7 @@ def on_form_submitted():
             st.session_state[f'q4_choice_{st.session_state["scenario_idx"]}_{idx}']
         )
         data["videos"][vids[idx]] = [q1_value, q2_value, q3_value, q4_value]
-    data["ranking"] = [f"{name}_{vids[idx]}" for idx, name in enumerate(st.session_state[f'ranking_{st.session_state["scenario_idx"]}'])]
+    # data["ranking"] = [f"{name}_{vids[idx]}" for idx, name in enumerate(st.session_state[f'ranking_{st.session_state["scenario_idx"]}'])]
     data["comment"] = st.session_state[f'comment_{st.session_state["scenario_idx"]}']
     st.session_state["log"].append(data)
 
@@ -201,14 +201,14 @@ def exp_fragment():
                 st.subheader(f"ビデオ{idx+1}")
                 st.video(url)
                 q1_choice = st.radio(
-                    "Q1: ロボットの話し方、表情、動きなどを見て、を見て、人間らしいと感じましたか、それとも機械的だと感じましたか？\n\n1: 非常に機械的; . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7: 非常に人間らしい",
+                    "Q1: ロボットの振舞いは、人間らしいと感じましたか、それとも機械的だと感じましたか？\n\n1: 非常に機械的; . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7: 非常に人間らしい",
                     options=[str(i) for i in range(1, 8)],
                     index=None,
                     key=f'q1_choice_{st.session_state["scenario_idx"]}_{idx}',
                     horizontal=True,
                 )
                 q2_choice = st.radio(
-                    "Q2: ロボットの話し方や態度は客の種類や状況に合っていると感じましたか？\n\n1: 全く合っていない; . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7: 非常に合っている",
+                    "Q2: ロボットの接客は、客の種類や状況に合っていると感じましたか？\n\n1: 全く合っていない; . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 7: 非常に合っている",
                     options=[str(i) for i in range(1, 8)],
                     index=None,
                     key=f'q2_choice_{st.session_state["scenario_idx"]}_{idx}',
@@ -228,19 +228,19 @@ def exp_fragment():
                     key=f'q4_choice_{st.session_state["scenario_idx"]}_{idx}',
                     horizontal=True,
                 )
-        with st.container(border=True):
-            st.subheader("４つのビデオの比較")
-            st.pills(
-                "以上の４つのビデオについて、対応が良いと感じられた順に選択してください。",
-                options=[f"ビデオ{idx+1}" for idx in range(4)],
-                key=f'ranking_{st.session_state["scenario_idx"]}',
-                selection_mode="multi"
-            )
-            ranking = st.session_state[f'ranking_{st.session_state["scenario_idx"]}']
-            st.write(f"あなたが選んだ順位: {ranking}")
-            def reset_ranking():
-                st.session_state[f'ranking_{st.session_state["scenario_idx"]}'] = []
-            st.button("順位をリセット", on_click=reset_ranking)
+        # with st.container(border=True):
+        #     st.subheader("４つのビデオの比較")
+        #     st.pills(
+        #         "以上の４つのビデオについて、対応が良いと感じられた順に選択してください。",
+        #         options=[f"ビデオ{idx+1}" for idx in range(4)],
+        #         key=f'ranking_{st.session_state["scenario_idx"]}',
+        #         selection_mode="multi"
+        #     )
+        #     ranking = st.session_state[f'ranking_{st.session_state["scenario_idx"]}']
+        #     st.write(f"あなたが選んだ順位: {ranking}")
+        #     def reset_ranking():
+        #         st.session_state[f'ranking_{st.session_state["scenario_idx"]}'] = []
+        #     st.button("順位をリセット", on_click=reset_ranking)
 
         with st.container(border=True):
             st.markdown(
@@ -258,7 +258,7 @@ def exp_fragment():
             or q2_choice is None
             or q3_choice is None
             or q4_choice is None
-            or len(st.session_state[f'ranking_{st.session_state["scenario_idx"]}']) < 4
+            # or len(st.session_state[f'ranking_{st.session_state["scenario_idx"]}']) < 4
         )
         st.button(
             "次へ",
