@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("コメント")
+# st.title("コメント")
 st.warning(
     "ページを更新したりタブを閉じたりしないでください。入力済みのデータが失われます。"
 )
