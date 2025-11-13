@@ -3,7 +3,7 @@ import datetime
 import pytz
 import streamlit as st
 
-st.title("アンドロイドロボットによる相手と状況を考慮した接客対応の印象に関する調査[addition]")
+st.title("アンドロイドロボットによる相手と状況を考慮した接客対応の印象に関する調査（その他）")
 with st.container(border=True):
         st.markdown(
             """
@@ -19,7 +19,7 @@ with st.container(border=True):
             
             映像と音声が流れますので、スピーカー、イヤホン、ヘッドホン等のオーディオ機器をご用意ください。
             
-            実験の所要時間はおよそ30～40分です。
+            実験の所要時間はおよそ40～50分です。
             """
         )
 
