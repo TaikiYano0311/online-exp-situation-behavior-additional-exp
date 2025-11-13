@@ -3,7 +3,7 @@ import datetime
 import pytz
 import streamlit as st
 
-st.title("アンドロイドロボットによる相手と状況を考慮した接客対応の印象に関する調査（その他）")
+st.title("アンドロイドロボットによる相手と状況を考慮した接客対応の印象に関する調査（その3）")
 with st.container(border=True):
         st.markdown(
             """
